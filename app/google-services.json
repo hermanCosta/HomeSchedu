@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "638422786024",
+    "firebase_url": "https://homeschedule-4163f.firebaseio.com",
+    "project_id": "homeschedule-4163f",
+    "storage_bucket": "homeschedule-4163f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:638422786024:android:5a093b1b513bd2e9d68e5d",
+        "android_client_info": {
+          "package_name": "com.herman.homeSchedule"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "638422786024-66qpv5mp6sso9crn8p78k2e2h69h0nbs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.herman.homeSchedule",
+            "certificate_hash": "97cf25023211b1cfdfd8cee6b00a468095beaefc"
+          }
+        },
+        {
+          "client_id": "638422786024-ub7lansfkn8k28edgbd4gruu0gqg6n55.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSEUwvEjefSfgIXeSwSD2exLK3kbxQv5A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "638422786024-ub7lansfkn8k28edgbd4gruu0gqg6n55.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,81 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'com.google.gms.google-services'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion '29.0.2'
+    defaultConfig {
+        applicationId "com.herman.homeSchedule"
+        minSdkVersion 28
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.3.0-alpha01'
+    implementation 'androidx.core:core-ktx:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha04'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.google.android.material:material:1.1.0'
+
+    implementation 'com.firebaseui:firebase-ui-auth:5.1.0'
+    implementation 'com.firebaseui:firebase-ui-firestore:6.2.1'
+    implementation 'com.google.firebase:firebase-core:17.4.4'
+    implementation 'com.google.firebase:firebase-auth:19.3.2'
+    implementation 'com.google.firebase:firebase-firestore:21.5.0'
+    implementation 'com.google.firebase:firebase-storage:19.1.1'
+
+
+    implementation 'com.firebaseui:firebase-ui-database:6.2.1'
+    implementation 'com.google.firebase:firebase-database-ktx:19.3.1'
+    implementation 'com.google.firebase:firebase-firestore-ktx:21.5.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    //Picasso photo set
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //Horizontal Calendar
+    implementation 'com.github.jhonnyx2012:horizontal-picker:1.0.6'
+
+    //circle ImageView
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //horizontal calendar view by Mulhan
+    implementation 'devs.mulham.horizontalcalendar:horizontalcalendar:1.3.4'
+
+    //material spinner step view
+    implementation 'com.shuhart.stepview:stepview:1.5.1'
+    implementation 'com.jaredrummler:material-spinner:1.3.1'
+
+    //dialog message load
+    implementation 'com.github.d-max:spots-dialog:1.1@aar'
+
+    //Dexter permission access
+    implementation 'com.karumi:dexter:6.2.1'
+
+    // for saving URI Calendar
+    implementation 'io.paperdb:paperdb:2.6'
+}

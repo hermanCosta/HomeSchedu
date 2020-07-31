@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/windowBackground"
+    tools:context=".Activity.CreateHouseActivity">
+
+
+    <EditText
+        android:id="@+id/et_house_number"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/tvSideMargin"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="@dimen/tvSideMargin"
+        android:background="@drawable/rounded_edit_text"
+        android:drawableStart="@drawable/ic_location"
+        android:drawablePadding="@dimen/drawablePaddingLeft"
+        android:ems="10"
+        android:hint="@string/number"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/et_street"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/tvSideMargin"
+        android:layout_marginTop="@dimen/et_top_margin_height"
+        android:layout_marginEnd="@dimen/tvSideMargin"
+        android:background="@drawable/rounded_edit_text"
+        android:drawableStart="@drawable/ic_location"
+        android:drawablePadding="@dimen/drawablePaddingLeft"
+        android:hint="@string/street"
+        android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_house_number"
+        android:autofillHints="" />
+
+
+    <EditText
+        android:id="@+id/et_zipcode"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="@dimen/et_top_margin_height"
+        android:layout_marginStart="@dimen/tvSideMargin"
+        android:layout_marginEnd="@dimen/tvSideMargin"
+        android:background="@drawable/rounded_edit_text"
+        android:drawableStart="@drawable/ic_location"
+        android:drawablePadding="@dimen/drawablePaddingLeft"
+        android:hint="@string/zipCodeEg"
+        android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_street"
+        android:autofillHints="" />
+
+
+    <EditText
+        android:id="@+id/et_eircode"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="@dimen/et_top_margin_height"
+        android:layout_marginStart="@dimen/tvSideMargin"
+        android:layout_marginEnd="@dimen/tvSideMargin"
+        android:background="@drawable/rounded_edit_text"
+        android:drawableStart="@drawable/ic_location"
+        android:drawablePadding="@dimen/drawablePaddingLeft"
+        android:hint="@string/eirCodeEg"
+        android:textAllCaps="true"
+        android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_zipcode"
+        android:autofillHints="" />
+
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_icon"
+        android:contentDescription="@string/logo" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/tvSideMargin"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="@dimen/tvSideMargin"
+        android:text="@string/createHouse"
+        android:textAlignment="center"
+        android:textColor="@color/textColor"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+
+    <Button
+        android:id="@+id/btn_create_house"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/tvSideMargin"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="@dimen/tvSideMargin"
+        android:background="@drawable/rounded_button"
+        android:fontFamily="sans-serif-light"
+        android:textStyle="bold"
+        android:text="@string/createHouse"
+        android:textColor="@color/textButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_eircode" />
+
+    <TextView
+        android:id="@+id/tv_enter_existing_house"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="70dp"
+        android:drawableEnd="@drawable/ic_right_arrow"
+        android:text="@string/enterExistingHouse"
+        android:textColor="@color/textButton"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_create_house"
+        app:layout_constraintVertical_bias="0.0" />
+</androidx.constraintlayout.widget.ConstraintLayout>

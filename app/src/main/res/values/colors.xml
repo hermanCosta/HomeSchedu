@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <color name="colorButton">#D81B60</color>
+    <color name="disableColor">#61273C75</color>
+    <color name="colorPrimary">#273C75</color>
+    <color name="colorPrimaryDark">#273C75</color>
+    <color name="textColor">#FFFFFF</color>
+    <color name="textColorHint">@android:color/secondary_text_dark</color>
+    <color name="windowBackground">#487eb0</color>
+    <color name="secondaryWindowColor">#dcdde1</color>
+    <color name="navigationBarColor">#273C75</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="textButton">#FFFFFF</color>
+    <color name="drawerNavBar">#f5f6fa</color>
+    <color name="profileColor">#ffa502</color>
+    <color name="drawableColor">#ffa502</color>
+    <color name="transparent">#00ff001C</color>
+    <color name="splashBackground">#B0487EB0</color>
+</resources>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.herman.homeschedu">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@drawable/logo_icon"
+        android:supportsRtl="true"
+        android:theme="@style/myCustomMaterial">
+
+
+        <activity android:name="com.herman.homeschedu.Activity.EnterExistingHouse" />
+
+        <activity android:name="com.herman.homeschedu.Activity.ScheduleActivity" />
+        <activity android:name="com.herman.homeschedu.Activity.CloseAccountActivity" />
+        <activity android:name="com.herman.homeschedu.Activity.CreateHouseActivity" />
+
+        <activity
+            android:name="com.herman.homeschedu.Model.SplashScreen"
+            android:theme="@style/SplashTheme">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.herman.homeschedu.Activity.MyScheduleActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.herman.homeschedu.Activity.HomeScreenActivity" />
+        </activity>
+        <activity android:name="com.herman.homeschedu.Activity.HousemateListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.herman.homeschedu.Activity.HomeScreenActivity" />
+        </activity>
+        <activity android:name="com.herman.homeschedu.Activity.UpdateProfileActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.herman.homeschedu.Activity.HomeScreenActivity"/>
+        </activity>
+
+
+
+        <activity android:name="com.herman.homeschedu.Activity.ProfileActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.herman.homeschedu.Activity.HomeScreenActivity" />
+        </activity>
+
+        <activity
+            android:name="com.herman.homeschedu.Activity.HomeScreenActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.herman.homeschedu.Activity.ResetPasswordActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+
+        <activity
+            android:name="com.herman.homeschedu.Activity.CreateUserActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.herman.homeschedu.Activity.MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+    </application>
+</manifest>

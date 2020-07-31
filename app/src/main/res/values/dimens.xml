@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tvSideMargin">30dp</dimen>
+    <dimen name="tv_bottom_width">100dp</dimen>
+    <dimen name="tv_bottom_height">20dp</dimen>
+    <dimen name="tv_top_margin">12dp</dimen>
+    <dimen name="drawablePaddingLeft">5dp</dimen>
+    <dimen name="viewLayout">1dp</dimen>
+    <dimen name="et_top_margin_height">8dp</dimen>
+    <dimen name="et_bottom_margin_height">8dp</dimen>
+    <dimen name="profileTextSize">20sp</dimen>
+    <dimen name="profileHeaderField">5dp</dimen>
+    <dimen name="confirmScheduleTextSize">18sp</dimen>
+    <dimen name="buttonSideMargin">30dp</dimen>
+
+
+</resources>

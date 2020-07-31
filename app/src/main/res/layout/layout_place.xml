@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="4dp"
+    android:id="@+id/card_view_place"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    
+    <LinearLayout
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_place_name"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_apartment"
+            android:contentDescription="@string/placeLocation"/>
+
+
+        <TextView
+            android:id="@+id/tv_place_name"
+            android:text="@string/placeName"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_place_local"
+            android:text="@string/placeLocal"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:textColor="@android:color/black"
+            android:drawableStart="@drawable/ic_location"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_place_information"
+            android:text="@string/information"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:drawableStart="@drawable/ic_info"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>

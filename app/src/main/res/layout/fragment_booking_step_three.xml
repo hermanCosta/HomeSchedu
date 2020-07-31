@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <devs.mulham.horizontalcalendar.HorizontalCalendarView
+        android:id="@+id/step_three_calendar_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+         app:textColorSelected="@color/textColor" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_time_slot_view"
+        android:layout_marginTop="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/layout_time_slot"/>
+
+
+</LinearLayout>

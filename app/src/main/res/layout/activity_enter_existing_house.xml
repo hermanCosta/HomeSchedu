@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/windowBackground"
+    tools:context=".Activity.EnterExistingHouse">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_icon"
+        android:contentDescription="@string/logo" />
+
+
+    <TextView
+        android:id="@+id/tv_to_reset_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/tvSideMargin"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="@dimen/tvSideMargin"
+        android:text="@string/toEnterInAExistingHouse"
+        android:textAlignment="center"
+        android:textColor="@android:color/secondary_text_dark"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/et_enter_existing_house"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/tvSideMargin"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="@dimen/tvSideMargin"
+        android:background="@drawable/rounded_edit_text"
+
+        android:drawableStart="@drawable/ic_key"
+        android:drawablePadding="8dp"
+        android:hint="@string/houseId"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_to_reset_password" />
+
+    <Button
+        android:id="@+id/btn_enter_existing_house"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/tvSideMargin"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="@dimen/tvSideMargin"
+        android:background="@drawable/rounded_button"
+        android:text="@string/saveAndContinue"
+        android:textColor="@color/textButton"
+        android:fontFamily="sans-serif-light"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_enter_existing_house" />
+
+    <TextView
+        android:id="@+id/tv_create_a_new_house"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/tv_bottom_height"
+        android:layout_marginStart="64dp"
+        android:drawableStart="@drawable/ic_left_arrow"
+        android:text="@string/createNewHouse"
+        android:textSize="15sp"
+        android:textColor="@color/common_google_signin_btn_text_dark_pressed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_enter_existing_house"
+        app:layout_constraintVertical_bias="0.17" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

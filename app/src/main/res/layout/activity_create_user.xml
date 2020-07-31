@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/windowBackground"
+    tools:context=".Activity.CreateUserActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circle_sign_up_photo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_sign_up_photo"
+        app:layout_constraintEnd_toEndOf="@+id/btn_sign_up_photo"
+        app:layout_constraintStart_toStartOf="@+id/btn_sign_up_photo"
+        app:layout_constraintTop_toTopOf="@+id/btn_sign_up_photo" />
+
+    <Button
+        android:id="@+id/btn_sign_up_photo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="@dimen/tvSideMargin"
+        android:layout_marginEnd="@dimen/tvSideMargin"
+        android:background="@drawable/rounded_photo"
+        android:hint="@string/selectPhoto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@drawable/ic_account_circle" />
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/progress_bar_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/circle_sign_up_photo"
+        app:layout_constraintEnd_toEndOf="@+id/circle_sign_up_photo"
+        app:layout_constraintStart_toStartOf="@+id/circle_sign_up_photo"
+        app:layout_constraintTop_toTopOf="@+id/circle_sign_up_photo" />
+
+
+    <EditText
+        android:id="@+id/et_first_name"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/tvSideMargin"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="@dimen/tvSideMargin"
+        android:autofillHints=""
+        android:background="@drawable/rounded_edit_text"
+        android:drawableStart="@drawable/ic_person"
+        android:drawablePadding="@dimen/drawablePaddingLeft"
+        android:ems="10"
+        android:hint="@string/firstName"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circle_sign_up_photo"
+        tools:targetApi="o" />
+
+    <EditText
+        android:id="@+id/et_last_name"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/tvSideMargin"
+        android:layout_marginTop="@dimen/et_top_margin_height"
+        android:layout_marginEnd="@dimen/tvSideMargin"
+        android:autofillHints=""
+        android:background="@drawable/rounded_edit_text"
+        android:drawableStart="@drawable/ic_person"
+        android:drawablePadding="@dimen/drawablePaddingLeft"
+        android:hint="@string/lastName"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_first_name" />
+
+    <EditText
+        android:id="@+id/et_sign_up_email"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/tvSideMargin"
+        android:layout_marginTop="@dimen/et_top_margin_height"
+        android:layout_marginEnd="@dimen/tvSideMargin"
+        android:autofillHints=""
+        android:background="@drawable/rounded_edit_text"
+        android:drawableStart="@drawable/ic_email"
+        android:drawablePadding="@dimen/drawablePaddingLeft"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_last_name"
+        tools:targetApi="o" />
+
+    <EditText
+        android:id="@+id/et_sign_up_password"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/tvSideMargin"
+        android:layout_marginTop="@dimen/et_top_margin_height"
+        android:layout_marginEnd="@dimen/tvSideMargin"
+        android:autofillHints=""
+        android:background="@drawable/rounded_edit_text"
+        android:drawableStart="@drawable/ic_baseline_lock"
+        android:drawablePadding="@dimen/drawablePaddingLeft"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_sign_up_email"
+        tools:targetApi="o" />
+
+    <EditText
+        android:id="@+id/et_confirm_password"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/tvSideMargin"
+        android:layout_marginTop="@dimen/et_top_margin_height"
+        android:layout_marginEnd="@dimen/tvSideMargin"
+        android:autofillHints=""
+        android:background="@drawable/rounded_edit_text"
+        android:drawableStart="@drawable/ic_baseline_lock"
+        android:drawablePadding="@dimen/drawablePaddingLeft"
+        android:ems="10"
+        android:hint="@string/confirmYourPassword"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_sign_up_password"
+        tools:targetApi="o" />
+
+    <Button
+        android:id="@+id/btn_create_account"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/tvSideMargin"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="@dimen/tvSideMargin"
+        android:background="@drawable/rounded_button"
+        android:text="@string/createAccount"
+        android:textColor="@color/textButton"
+        android:fontFamily="sans-serif-light"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_confirm_password" />
+
+    <TextView
+        android:id="@+id/tv_have_an_account"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/tv_bottom_height"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/alreadyHaveAnAccount"
+        android:textColor="@color/common_google_signin_btn_text_dark_pressed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.029"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_create_account"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_login_in"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/tv_bottom_height"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="50dp"
+        android:text="@string/logIn"
+        android:drawableEnd="@drawable/ic_right_arrow"
+        android:textColor="@color/common_google_signin_btn_text_dark_pressed"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.205"
+        app:layout_constraintStart_toEndOf="@+id/tv_have_an_account"
+        app:layout_constraintTop_toBottomOf="@+id/btn_create_account"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
