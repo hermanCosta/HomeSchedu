@@ -21,11 +21,11 @@ import com.herman.homeschedu.Interface.IPlaceLoadListener
 import com.herman.homeschedu.Model.Place
 import com.herman.homeschedu.R
 import dmax.dialog.SpotsDialog
-import kotlinx.android.synthetic.main.fragment_booking_step_one.*
-import kotlinx.android.synthetic.main.fragment_booking_step_one.view.*
+import kotlinx.android.synthetic.main.fragment_schedule_step_one.*
+import kotlinx.android.synthetic.main.fragment_schedule_step_one.view.*
 import kotlin.collections.ArrayList
 
-class BookingStep1Fragment : Fragment(), IAllResourceLoadListener, IPlaceLoadListener {
+class ScheduleStep1Fragment : Fragment(), IAllResourceLoadListener, IPlaceLoadListener {
 
     //Variables
     private lateinit var allResourceRef: CollectionReference
@@ -39,10 +39,10 @@ class BookingStep1Fragment : Fragment(), IAllResourceLoadListener, IPlaceLoadLis
     val uid = FirebaseAuth.getInstance().uid ?: ""
 
     companion object {
-        private var instance: BookingStep1Fragment? = null
-        fun getInstance(): BookingStep1Fragment? {
+        private var instance: ScheduleStep1Fragment? = null
+        fun getInstance(): ScheduleStep1Fragment? {
             if (instance == null) {
-                instance = BookingStep1Fragment()
+                instance = ScheduleStep1Fragment()
             }
             return instance
         }
@@ -65,7 +65,7 @@ class BookingStep1Fragment : Fragment(), IAllResourceLoadListener, IPlaceLoadLis
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
-        val itemView = inflater.inflate(R.layout.fragment_booking_step_one, container, false)
+        val itemView = inflater.inflate(R.layout.fragment_schedule_step_one, container, false)
         val recyclerSalon = itemView.recycler_place
 
         init(recyclerSalon)

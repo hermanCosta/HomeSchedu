@@ -25,14 +25,14 @@ import com.herman.homeschedu.Common.Common.Companion.scheduleDate
 import com.herman.homeschedu.Model.ScheduleInformation
 import com.herman.homeschedu.R
 import dmax.dialog.SpotsDialog
-import kotlinx.android.synthetic.main.fragment_booking_step_four.*
-import kotlinx.android.synthetic.main.fragment_booking_step_four.view.*
+import kotlinx.android.synthetic.main.fragment_schedule_step_four.*
+import kotlinx.android.synthetic.main.fragment_schedule_step_four.view.*
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 import com.herman.homeschedu.Common.Common.Companion as Common1
 
-class BookingStep4Fragment : Fragment() {
+class ScheduleStep4Fragment : Fragment() {
 
     lateinit var simpleDateFormat: SimpleDateFormat
     lateinit var localBroadcastManager: LocalBroadcastManager
@@ -63,10 +63,10 @@ class BookingStep4Fragment : Fragment() {
     }
 
     companion object {
-        private var instance: BookingStep4Fragment? = null
-        fun getInstance(): BookingStep4Fragment? {
+        private var instance: ScheduleStep4Fragment? = null
+        fun getInstance(): ScheduleStep4Fragment? {
             if (instance == null) {
-                instance = BookingStep4Fragment()
+                instance = ScheduleStep4Fragment()
             }
             return instance
         }
@@ -101,7 +101,7 @@ class BookingStep4Fragment : Fragment() {
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
-        val itemView = inflater.inflate(R.layout.fragment_booking_step_four, container, false)
+        val itemView = inflater.inflate(R.layout.fragment_schedule_step_four, container, false)
 
         val button = itemView.btn_confirm as Button
         button.setOnClickListener { confirmBooking() }
@@ -138,7 +138,7 @@ class BookingStep4Fragment : Fragment() {
             .collection("/users")
             .document(uid)
 
-        Log.d("BookingStep4Fragment", "User ID: $uid")
+        Log.d("ScheduleStep4Fragment", "User ID: $uid")
 
         userRef.addSnapshotListener { userDocument, _ ->
 
@@ -224,7 +224,7 @@ class BookingStep4Fragment : Fragment() {
 
             houseBooking.set(bookingInformation)
                 .addOnSuccessListener {
-                    Log.d("BookingStep4Fragment", "Booking saved to the user house")
+                    Log.d("ScheduleStep4Fragment", "Booking saved to the user house")
 
                     if (dialog.isShowing)
                         dialog.dismiss()
@@ -324,7 +324,7 @@ class BookingStep4Fragment : Fragment() {
 
                     val calendarUri = hashMapOf("calendarUri" to uriSave.toString())
 
-                    Log.d("BookingStep4Fragment", "Calendar Uri: ${uriSave.toString()}")
+                    Log.d("ScheduleStep4Fragment", "Calendar Uri: ${uriSave.toString()}")
 
                     // Merge to Item Collection
                     val houseRef = fStore
@@ -342,7 +342,7 @@ class BookingStep4Fragment : Fragment() {
                     houseRef.update("calendarUri",calendarUri)
                         .addOnSuccessListener {
                             Log.d(
-                                "BookingStep4Fragment",
+                                "ScheduleStep4Fragment",
                                 "CalendarUri Updated in Item Collection"
                             )
 
@@ -375,7 +375,7 @@ class BookingStep4Fragment : Fragment() {
                                         .set(calendarUri, SetOptions.merge())
                                         .addOnSuccessListener {
                                             Log.d(
-                                                "BookingStep4Fragment",
+                                                "ScheduleStep4Fragment",
                                                 "CalendarUri Updated in House Booking Collection"
                                             )
                                             resetStaticData()

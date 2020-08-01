@@ -25,13 +25,13 @@ import com.herman.homeschedu.R
 import devs.mulham.horizontalcalendar.HorizontalCalendar
 import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener
 import dmax.dialog.SpotsDialog
-import kotlinx.android.synthetic.main.fragment_booking_step_three.*
-import kotlinx.android.synthetic.main.fragment_booking_step_three.view.rv_time_slot_view
+import kotlinx.android.synthetic.main.fragment_schedule_step_three.*
+import kotlinx.android.synthetic.main.fragment_schedule_step_three.view.rv_time_slot_view
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-class BookingStep3Fragment : Fragment(), ITimeSlotLoadListener {
+class ScheduleStep3Fragment : Fragment(), ITimeSlotLoadListener {
 
     private lateinit var itemDoc: DocumentReference
     private lateinit var iTimeSlotLoadListener: ITimeSlotLoadListener
@@ -41,10 +41,10 @@ class BookingStep3Fragment : Fragment(), ITimeSlotLoadListener {
     private lateinit var mAuth: FirebaseAuth
 
     companion object {
-        private var instance: BookingStep3Fragment? = null
-        fun getInstance(): BookingStep3Fragment? {
+        private var instance: ScheduleStep3Fragment? = null
+        fun getInstance(): ScheduleStep3Fragment? {
             if (instance == null) {
-                instance = BookingStep3Fragment()
+                instance = ScheduleStep3Fragment()
             }
             return instance
         }
@@ -114,7 +114,7 @@ class BookingStep3Fragment : Fragment(), ITimeSlotLoadListener {
                                         timeSlots.add(queryDocumentSnapshot.toObject(TimeSlot::class.java))
                                     iTimeSlotLoadListener.onTimeSlotLoadSuccess(timeSlots)
                                     Log.d(
-                                        "BookingStep3Fragment", "Full slot total: ${timeSlots.size}")
+                                        "ScheduleStep3Fragment", "Full slot total: ${timeSlots.size}")
                                 }
                             }
                         }
@@ -157,7 +157,7 @@ class BookingStep3Fragment : Fragment(), ITimeSlotLoadListener {
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
-        val itemView = inflater.inflate(R.layout.fragment_booking_step_three, container, false)
+        val itemView = inflater.inflate(R.layout.fragment_schedule_step_three, container, false)
         val recyclerTimeSlot = itemView.rv_time_slot_view
 
         init(itemView, recyclerTimeSlot)

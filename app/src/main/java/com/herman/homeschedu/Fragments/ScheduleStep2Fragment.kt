@@ -17,27 +17,27 @@ import com.herman.homeschedu.Common.Common
 import com.herman.homeschedu.Common.SpacesItemDecoration
 import com.herman.homeschedu.Model.Item
 import com.herman.homeschedu.R
-import kotlinx.android.synthetic.main.fragment_booking_step_two.*
-import kotlinx.android.synthetic.main.fragment_booking_step_two.view.*
+import kotlinx.android.synthetic.main.fragment_schedule_step_two.*
+import kotlinx.android.synthetic.main.fragment_schedule_step_two.view.*
 import java.util.ArrayList
 
-class BookingStep2Fragment : Fragment() {
+class ScheduleStep2Fragment : Fragment() {
 
     lateinit var localBroadcastManager: LocalBroadcastManager
 
-    private val barberDoneReceiver = object : BroadcastReceiver() {
+    private val itemDoneReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
             val itemArrayList: ArrayList<Item> = intent.getParcelableArrayListExtra(Common.KEY_ITEM_LOAD_DONE)
-            val barberAdapter = ItemAdapter(context, itemArrayList)
-            recycler_item.adapter = barberAdapter
+            val itemAdapter = ItemAdapter(context, itemArrayList)
+            recycler_item.adapter = itemAdapter
         }
     }
 
     companion object {
-        private var instance: BookingStep2Fragment? = null
-        fun getInstance() : BookingStep2Fragment? {
+        private var instance: ScheduleStep2Fragment? = null
+        fun getInstance() : ScheduleStep2Fragment? {
             if (instance == null) {
-                instance = BookingStep2Fragment()
+                instance = ScheduleStep2Fragment()
             }
             return instance
         }
@@ -46,11 +46,11 @@ class BookingStep2Fragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         localBroadcastManager = LocalBroadcastManager.getInstance(context!!)
-        localBroadcastManager.registerReceiver(barberDoneReceiver, IntentFilter(Common.KEY_ITEM_LOAD_DONE))
+        localBroadcastManager.registerReceiver(itemDoneReceiver, IntentFilter(Common.KEY_ITEM_LOAD_DONE))
     }
 
     override fun onDestroy() {
-        localBroadcastManager.unregisterReceiver(barberDoneReceiver)
+        localBroadcastManager.unregisterReceiver(itemDoneReceiver)
         super.onDestroy()
     }
 
@@ -61,7 +61,7 @@ class BookingStep2Fragment : Fragment() {
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
-        val itemView =  inflater.inflate(R.layout.fragment_booking_step_two, container, false)
+        val itemView =  inflater.inflate(R.layout.fragment_schedule_step_two, container, false)
         val recyclerItem = itemView.recycler_item
 
         init(recyclerItem)
