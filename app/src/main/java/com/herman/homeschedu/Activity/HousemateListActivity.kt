@@ -73,7 +73,7 @@ class HousemateListActivity : AppCompatActivity() {
         clipboardManager.setPrimaryClip(clip)
         true // Or false if not consumed
 
-        Toast.makeText(baseContext, "ID: $houseId copied", Toast.LENGTH_SHORT).show()
+        Toast.makeText(baseContext, "house ID copied", Toast.LENGTH_SHORT).show()
     }
 
     private fun setRecycleView() {

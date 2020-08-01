@@ -19,12 +19,17 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.navigation.NavigationView
+import com.google.common.base.MoreObjects
+import com.google.firebase.auth.AuthCredential
+import com.google.firebase.auth.EmailAuthCredential
+import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.herman.homeschedu.Adapter.ScheduleAdapter
 import com.herman.homeschedu.Common.Common
 import com.herman.homeschedu.Model.ScheduleInformation
+import com.herman.homeschedu.Model.User
 import com.herman.homeschedu.R
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
@@ -33,6 +38,7 @@ import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.squareup.picasso.Picasso
 import dmax.dialog.SpotsDialog
+import kotlinx.android.synthetic.main.activity_my_schedule.*
 import kotlinx.android.synthetic.main.home_content_main.*
 import kotlinx.android.synthetic.main.nav_header.*
 import kotlinx.android.synthetic.main.nav_header.view.*
@@ -56,7 +62,6 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         centerTitle()
-
 
         dialog = SpotsDialog.Builder().setContext(this).setCancelable(false).build()
         mAuth = FirebaseAuth.getInstance()
@@ -101,19 +106,12 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
 
     override fun onResume() {
         super.onResume()
-        if(navUserProfileInfo()) {
-            setRecyclerView()
-        }
-        else {
-            mAuth.signOut()
-        }
-
-
+           setRecyclerView()
     }
 
 
     override fun onDestroy() {
-        if (mAuth.currentUser == null || houseId.isEmpty())
+       // if (mAuth.currentUser == null || houseId.isEmpty())
             super.onDestroy()
 
     }
@@ -230,13 +228,13 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                 alertDialogBuilder.setTitle("Are you sure?")
                 alertDialogBuilder.setMessage(R.string.deleteAccount)
                 alertDialogBuilder.setPositiveButton("Delete") { _: DialogInterface, _: Int ->
-                    dialog.show()
+                //    dialog.show()
 
+                    deleteUserFromApp()
                     Common.HOUSE_TO_DELETE = houseId
-
                     val intent = Intent(this, CloseAccountActivity::class.java)
                     startActivity(intent)
-                    finish()
+
 
                 }
 
@@ -255,6 +253,8 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                 Toast.makeText(this, "Signed out ", Toast.LENGTH_SHORT).show()
 
                 val intent = Intent(this, MainActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                 startActivity(intent)
             }
         }
@@ -291,5 +291,21 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
     private fun openBookingActivity() {
         val intent = Intent(this, ScheduleActivity::class.java)
         startActivity(intent)
+    }
+
+    private fun deleteUserFromApp() {
+        mAuth.currentUser!!.delete().addOnCompleteListener() {
+            Log.d("CloseAccountActivity", "User Deleted From Firebase")
+
+            val intent = Intent(this, CloseAccountActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            startActivity(intent)
+            dialog.dismiss()
+        }
+            .addOnFailureListener {
+                Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+                Log.d("CloseAccountActivity", it.message!!)
+            }
     }
 }

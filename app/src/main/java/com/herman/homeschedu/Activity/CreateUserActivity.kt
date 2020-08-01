@@ -97,11 +97,12 @@ class CreateUserActivity : AppCompatActivity() {
                             finish()
                             uploadImageToFirebase()
                             openCreateHouseActivity()
+                            dialog.dismiss()
 
                             // Sign in success, update UI with the signed-in user's information
                             // Toast.makeText(baseContext, getString(R.string.userCreatedSuccessfully), Toast.LENGTH_SHORT).show()
                             Log.d("CreateUserActivity", "User created successfully")
-                            dialog.dismiss()
+                           // dialog.dismiss()
                         }
 
 

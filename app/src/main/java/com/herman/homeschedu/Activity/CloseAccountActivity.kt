@@ -1,16 +1,21 @@
 package com.herman.homeschedu.Activity
 
+import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.herman.homeschedu.Common.Common
 import com.herman.homeschedu.Common.Common.Companion.fStore
 import com.herman.homeschedu.R
+import dmax.dialog.SpotsDialog
 import java.time.format.DateTimeFormatter
 
 class CloseAccountActivity : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
+    private lateinit var dialog: AlertDialog
     val uid = FirebaseAuth.getInstance().uid ?: ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,17 +23,15 @@ class CloseAccountActivity : AppCompatActivity() {
         setContentView(R.layout.activity_close_account)
 
         mAuth = FirebaseAuth.getInstance()
-        deleteUserFromHousemateList()
-        deleteFromUserCollection()
-        deleteScheduleFromHouse()
-        deleteUserFromApp()
+        dialog = SpotsDialog.Builder().setContext(this).setCancelable(false).build()
 
+        mAuth.signOut()
 
     }
 
     private fun deleteUserFromHousemateList() {
 
-        if (Common.HOUSE_TO_DELETE == null) {
+        if (Common.HOUSE_TO_DELETE == null || mAuth.currentUser != null) {
             deleteUserFromApp()
 
         } else {
@@ -79,7 +82,7 @@ class CloseAccountActivity : AppCompatActivity() {
                                 "House deleted from houses Collection"
                             )
 
-//                            deleteFromUserCollection()
+                            deleteFromUserCollection()
 
                         }
                 }
@@ -119,11 +122,18 @@ class CloseAccountActivity : AppCompatActivity() {
                     .collection(dateFormat)
                     .document(slot)
 
-                itemRef.delete().addOnSuccessListener {
+                itemRef.delete().addOnCompleteListener() { task ->
+                    if (task.isSuccessful) {
+
+                    }
                     Log.d("CloseAccountActivity", "Item Deleted ")
 
-                    //deleteScheduleFromHouse()
+                    deleteScheduleFromHouse()
                 }
+                    .addOnFailureListener {
+                        Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
+
+                    }
             }
         }
     }
@@ -138,7 +148,7 @@ class CloseAccountActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 Log.d("CloseAccountActivity", "User deleted from Housemate Collection")
 
-               // deleteUserFromApp()
+               deleteUserFromApp()
             }
             .addOnFailureListener {
                 Log.d("CloseAccountActivity", it.message!!)
@@ -146,9 +156,14 @@ class CloseAccountActivity : AppCompatActivity() {
     }
 
     private fun deleteUserFromApp() {
-        mAuth.currentUser!!.delete().addOnSuccessListener {
+        mAuth.currentUser!!.delete().addOnCompleteListener() {
             Log.d("CloseAccountActivity", "User Deleted From Firebase")
-            mAuth.signOut()
+
+            val intent = Intent(this, CloseAccountActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            startActivity(intent)
+
         }
             .addOnFailureListener {
                 Log.d("CloseAccountActivity", it.message!!)

@@ -30,7 +30,7 @@
 
             <item
                 android:id="@+id/nav_close_account"
-                android:icon="@drawable/ic_close"
+                android:icon="@drawable/ic_delete"
                 android:title="@string/closeAccount"/>
         </menu>
     </item>

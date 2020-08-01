@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
 
     public override fun onStart() {
         super.onStart()
-        if (mAuth.currentUser != null) { //&& !Common.HOUSE_ID.isNullOrEmpty()) {
+        if (mAuth.currentUser != null) {
             finish()
             openHomeActivity()
         }
@@ -111,7 +111,6 @@ class MainActivity : AppCompatActivity() {
                                 Log.i("Authentication", "Sign in successfully")
 
                             } else if (!houseId && !currentUser.isEmailVerified) {
-                                currentUser.sendEmailVerification()
                                 btn_resend_verification_code.visibility = View.VISIBLE
                                 Toast.makeText(
                                     baseContext,
