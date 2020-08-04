@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
 
     public override fun onStart() {
         super.onStart()
-        if (mAuth.currentUser != null) {
+        if (mAuth.currentUser != null && !Common.HOUSE_ID.isNullOrEmpty()) {
             finish()
             openHomeActivity()
         }
@@ -97,6 +97,7 @@ class MainActivity : AppCompatActivity() {
                         .document(uid)
                         .addSnapshotListener { userDoc: DocumentSnapshot?, _: FirebaseFirestoreException? ->
                             val houseId = userDoc?.getString("houseId").isNullOrEmpty()
+                            Common.HOUSE_ID = houseId.toString()
 
                             //currentUser!!.reload()
                             if (currentUser!!.isEmailVerified && !houseId) {

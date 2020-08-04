@@ -18,7 +18,9 @@
             android:configChanges="orientation|screenSize|keyboardHidden"/>
 
         <activity android:name="com.herman.homeschedu.Activity.ScheduleActivity" />
-        <activity android:name="com.herman.homeschedu.Activity.CloseAccountActivity" />
+        <activity android:name="com.herman.homeschedu.Activity.CloseAccountActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+
         <activity android:name="com.herman.homeschedu.Activity.CreateHouseActivity" />
 
         <activity

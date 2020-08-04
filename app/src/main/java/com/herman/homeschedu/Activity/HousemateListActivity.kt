@@ -24,6 +24,7 @@ import com.herman.homeschedu.Model.User
 import com.herman.homeschedu.R
 import dmax.dialog.SpotsDialog
 import kotlinx.android.synthetic.main.activity_housemate_list.*
+import java.time.format.DateTimeFormatter
 
 class HousemateListActivity : AppCompatActivity() {
 
@@ -40,6 +41,11 @@ class HousemateListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_housemate_list)
         supportActionBar?.title = "HOUSEMATES"
+
+        val formatter = DateTimeFormatter.ofPattern("dd_MM_yyyy")
+        val dateFormat = Common.todayDate.format(formatter).toString()
+        Log.d("HomeScreenActivity", "date Format: $dateFormat")
+
         centerTitle()
 
         recyclerList = ArrayList()

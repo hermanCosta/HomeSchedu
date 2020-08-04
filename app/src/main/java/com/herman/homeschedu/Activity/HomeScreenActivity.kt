@@ -230,8 +230,8 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                 alertDialogBuilder.setPositiveButton("Delete") { _: DialogInterface, _: Int ->
                 //    dialog.show()
 
-                    deleteUserFromApp()
                     Common.HOUSE_TO_DELETE = houseId
+                    //deleteUserFromApp()
                     val intent = Intent(this, CloseAccountActivity::class.java)
                     startActivity(intent)
 
@@ -306,6 +306,7 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
             .addOnFailureListener {
                 Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
                 Log.d("CloseAccountActivity", it.message!!)
+                dialog.dismiss()
             }
     }
 }
