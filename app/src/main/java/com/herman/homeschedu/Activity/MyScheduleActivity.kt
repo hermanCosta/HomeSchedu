@@ -8,13 +8,13 @@ import android.graphics.*
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.esotericsoftware.minlog.Log
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentSnapshot
@@ -237,7 +237,7 @@ class MyScheduleActivity : AppCompatActivity() {
         dialog.show()
 
         val scheduleId = adapter.snapshots.getSnapshot(viewHolder.absoluteAdapterPosition).id
-        Log.debug("MyScheduleActivity", "schedule ID: $scheduleId")
+        Log.d("MyScheduleActivity", "schedule ID: $scheduleId")
 
         val formatter = DateTimeFormatter.ofPattern("dd_MM_yyyy")
         val dateFormat = Common.todayDate.format(formatter).toString()
@@ -274,7 +274,7 @@ class MyScheduleActivity : AppCompatActivity() {
             mMHouseRef.delete()
                 .addOnCompleteListener { itemSchedule ->
                     if (itemSchedule.isSuccessful) {
-                        Log.debug(
+                        Log.d(
                             "My ScheduleAdapter",
                             "Schedule deleted from Item Collection"
                         )
@@ -292,7 +292,7 @@ class MyScheduleActivity : AppCompatActivity() {
                             .addOnCompleteListener { houseSchedule ->
                                 if (houseSchedule.isSuccessful) {
                                     adapter.deleteSchedule(viewHolder.absoluteAdapterPosition)
-                                    Log.debug(
+                                    Log.d(
                                         "MyScheduleActivity",
                                         "Schedule deleted from the House"
                                     )
@@ -325,7 +325,7 @@ class MyScheduleActivity : AppCompatActivity() {
                                         "Schedule Deleted Successfully",
                                         Toast.LENGTH_SHORT
                                     ).show()
-                                    Log.debug(
+                                    Log.d(
                                         "MyScheduleActivity",
                                         "Schedule deleted from recyclerView"
                                     )

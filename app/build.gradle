@@ -76,6 +76,5 @@ dependencies {
     //Dexter permission access
     implementation 'com.karumi:dexter:6.2.1'
 
-    // for saving URI Calendar
-    implementation 'io.paperdb:paperdb:2.6'
+
 }
