@@ -4,9 +4,9 @@ This Android mobile app has straight forward objective which provides more effec
 
 
 
-Main Features
+	Main Features
 
-	Create an account
+Create an account
 | Create a house or join into existing one
 |	Check all schedules of the house
 |	Creating Schedules for using Bathroom and Wash machine
